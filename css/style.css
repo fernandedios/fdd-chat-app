@@ -1,0 +1,445 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #a40001;
+  font-size: 14px;
+  overflow: hidden;
+}
+body {
+  padding-top: 50px;
+}
+
+#wrapper, #main, .full {
+  height: 100%;
+}
+.container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+.content-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+.footer {
+  position: absolute;
+  background: rgba(164, 0, 1 ,.8);
+  width: 100%;
+  bottom: 0;
+  z-index: 30;
+}
+.footer,
+.push {
+  height: 90px;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 210px);
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#header {
+  display: block;
+  width: 197px;
+  height: 160px;
+  background: url('../images/im.png') no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+.p5input {
+  width: 210px;
+  height: 49px;
+  padding-left: 18px;
+  padding-right: 15px;
+  border: none;
+  background: url('../images/input.png') no-repeat;
+}
+
+.p5button {
+  width: 101px;
+  height: 49px;
+  vertical-align: bottom;
+  border: none;
+  background-size: contain;
+  background: url('../images/send.png') no-repeat;
+}
+
+#chat-panel {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+}
+
+.chat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat li {
+  width: 100%;
+  min-height: 100px;
+  display: inline-block;
+  padding-bottom: 10px;
+  padding-left: 60px;
+}
+
+.bubble {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  min-height: 100px;
+}
+
+.bubble-body {
+  padding-left: 110px;
+  padding-top: 50px;
+  padding-right: 60px;
+  padding-bottom: 40px;
+  width: calc(100% - 152px);
+  background-size: 100% 100%;
+  background-image: url('../images/bubble-body.png');
+  background-repeat: no-repeat;
+  font-size: 24px;
+  color: #fff;
+}
+
+.bubble-name {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 152px;
+  width: 250px;
+  height: 100px;
+  background-size: 100% 100%;
+  background-image: url('../images/bubble_name.png');
+  background-repeat: no-repeat;
+  z-index: 20;
+}
+
+.bubble-name span {
+  display: block;
+  color: #000;
+  font-weight: bolder;
+  font-size: 26px;
+  transform: rotate(-18deg);
+  margin-left: 65px;
+  margin-top: 20px;
+}
+
+.portrait {
+  width: 152px;
+  height: 152px;
+}
+
+.portframe {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  background-position: center center;
+  background-size: contain;
+  background-image: url('../images/portrait.png');
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.portimg {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  z-index: 1;
+}
+
+.portimg img {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 148px;
+  height: 148px;
+}
+
+.clear {
+  clear: both;
+}
+
+#login-panel {
+  position: absolute;
+  top: 50%;
+  margin-top: -240px;
+  left: 50%;
+  margin-left: -300px;
+  width: 600px;
+  height: 480px;
+
+  background-image: url('../images/login_frame.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#login-button {
+  position: absolute;
+  top: 18%;
+  left: 23.17%;
+  width: 53.83%;
+  height: 10.00%;
+  background-image: url('../images/facebook.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+#anon-head {
+  position: absolute;
+  top: 30%;
+  left: 25.00%;
+  width: 53.83%;
+  height: 8.96%;
+  background-image: url('../images/anon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#avatar-container {
+  position: absolute;
+  top: 45%;
+  left: 32.50%;
+  width: 36.83%;
+  height: 22.92%;
+}
+
+.avatar-img {
+  position: absolute;
+  width: 23.98%;
+  height: 48.18%;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#prot {
+  top: 0;
+  left: 0;
+  background-image: url('../images/prot.jpg');
+}
+
+#ryuji {
+  top: 0.00%;
+  left: 25.34%;
+  background-image: url('../images/ryuji.jpg');
+}
+
+#ann {
+  top: 0.00%;
+  left: 50.68%;
+  background-image: url('../images/ann.jpg');
+}
+
+#yusuke {
+  right: 0;
+  background-image: url('../images/yusuke.jpg');
+}
+
+#makoto {
+  top: 50.91%;
+  background-image: url('../images/makoto.jpg');
+}
+
+#futaba {
+  top: 50.91%;
+  left: 25.34%;
+  background-image: url('../images/futaba.jpg');
+}
+
+#haru {
+  top: 50.91%;
+  left: 50.68%;
+  background-image: url('../images/haru.jpg');
+}
+
+#mona {
+  top: 50.91%;
+  right: 0;
+  background-image: url('../images/mona.jpg');
+}
+
+input:hover,
+input:active,
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+
+
+@media only screen and (max-width : 800px) {
+  #header {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portrait, .portframe, .portimg {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portimg img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .bubble-body {
+    font-size: 20px;
+    padding-left: 70px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    width: calc(100% - 120px);
+  }
+
+  .bubble-name {
+    margin-top: -25px;
+    margin-left: 110px;
+    width: 150px;
+    height: 80px;
+  }
+
+  .bubble-name span {
+    margin-left: 40px;
+    font-size: 21px;
+  }
+}
+
+@media only screen and (max-width : 500px) {
+  #header {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .content-container {
+    padding: 0;
+  }
+
+  .chat li {
+    padding-left: 0;
+  }
+
+  .portrait, .portframe, .portimg {
+    width: 90px;
+    height: 90px;
+  }
+
+  .portimg img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .bubble-body {
+    padding-left: 60px;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: calc(100% - 80px);
+    font-size: 17px;
+  }
+
+  .bubble-name {
+    margin-top: -20px;
+    margin-left: 90px;
+    width: 140px;
+    height: 60px;
+  }
+
+  .bubble-name span {
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 18px;
+  }
+
+  .p5button {
+    width: 90px;
+    height: 49px;
+  }
+
+  #login-panel {
+    margin-top: -160px;
+    margin-left: -200px;
+    width: 400px;
+    height: 320px;
+  }
+}
+
+@media only screen and (max-width : 375px) {
+  .bubble-body {
+    padding-top: 25px;
+    padding-left: 60px;
+  }
+
+  #login-panel {
+    margin-top: -150px;
+    margin-left: -175px;
+    width: 320px;
+    height: 280px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+  .bubble-body {
+    padding-top: 25px;
+    padding-left: 60px;
+  }
+
+  #login-panel {
+    margin-top: -150px;
+    margin-left: -155px;
+    width: 290px;
+    height: 232px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .p5input {
+    width: 350px;
+    background: url('../images/input-long.png') no-repeat;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width : 750px) {
+  #login-panel {
+    margin-top: -120px;
+    margin-left: -175px;
+    width: 320px;
+    height: 280px;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width : 568px) {
+  #login-panel {
+    margin-top: -120px;
+    margin-left: -155px;
+    width: 290px;
+    height: 232px;
+  }
+}

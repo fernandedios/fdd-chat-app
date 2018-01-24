@@ -21,7 +21,6 @@
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
     "eslint-config-rallycoding": "^3.2.0",
-    "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
@@ -29,6 +28,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "jquery": "^3.0.0",
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
     "firebase": "^4.1.3",

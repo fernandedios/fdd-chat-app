@@ -29,6 +29,6 @@ Thanks
 
 > [fernandedios.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
 > GitHub [@fernandedios](https://github.com/fernandedios) &nbsp;&middot;&nbsp;
-> Twitter [@fdd22](https://twitter.com/fdd22)
+> Twitter [@fernan_de_dios](https://twitter.com/fernan_de_dios)
 
 [MIT License]: http://mit-license.org/

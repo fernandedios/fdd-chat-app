@@ -27,7 +27,7 @@ Thanks
 
 *FDD Concept: Chat/Messaging Application* © 2017, Fernan de Dios. Released under the [MIT License].<br>
 
-> [fernandedios.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
+> [fernandedios.com](http://fernandedios.com) &nbsp;&middot;&nbsp;
 > GitHub [@fernandedios](https://github.com/fernandedios) &nbsp;&middot;&nbsp;
 > Twitter [@fernan_de_dios](https://twitter.com/fernan_de_dios)
 

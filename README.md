@@ -11,10 +11,10 @@ Getting Started
 Checkout this repo, install dependencies, then start the app.
 
 ```html
-  $ git clone git@github.com:fernandedios/fdd-chat-app.git
-	$ cd fdd-chat-app
-	$ npm install
-	$ npm start
+$ git clone git@github.com:fernandedios/fdd-chat-app.git
+$ cd fdd-chat-app
+$ npm install
+$ npm start
 ```
 
 Resources

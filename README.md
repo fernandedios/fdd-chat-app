@@ -19,7 +19,7 @@ $ npm start
 
 Resources
 ---------
-Description and working demo can be found here:
+More information and working demo can be found here:
 > http://fernandedios.com/index.php?page=experiments&id=chat
 
 Thanks

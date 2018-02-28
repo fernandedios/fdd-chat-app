@@ -13,11 +13,21 @@ body {
 #wrapper, #main, .full {
   height: 100%;
 }
+
+#logo-container {
+  position: fixed;
+  z-index: 99;
+  margin-top: -50px;
+}
+
 .container {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
+
 .content-container {
   padding-right: 15px;
   padding-left: 15px;
@@ -90,29 +100,26 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 30px;
 }
 
 .chat li {
   width: 100%;
   min-height: 100px;
   display: inline-block;
-  padding-bottom: 10px;
-  padding-left: 60px;
 }
 
 .bubble {
-  display: flex;
-  justify-content: left;
   width: 100%;
   min-height: 100px;
+  margin-bottom: 40px;
 }
 
 .bubble-body {
-  padding-left: 110px;
-  padding-top: 50px;
-  padding-right: 60px;
-  padding-bottom: 40px;
-  width: calc(100% - 152px);
+  position: absolute;
+  left: 150px;
+  padding: 50px 60px 40px 130px;
+  width: calc(100% - 400px);
   background-size: 100% 100%;
   background-image: url('../images/bubble-body.png');
   background-repeat: no-repeat;
@@ -122,8 +129,8 @@ body {
 
 .bubble-name {
   position: absolute;
-  margin-top: -25px;
-  margin-left: 152px;
+  left: 150px;
+  margin-top: -20px;
   width: 250px;
   height: 100px;
   background-size: 100% 100%;
@@ -143,6 +150,7 @@ body {
 }
 
 .portrait {
+  position: absolute;
   width: 152px;
   height: 152px;
 }
@@ -296,34 +304,32 @@ button:hover
   }
 
   .portrait, .portframe, .portimg {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
   .portimg img {
-    width: 110px;
-    height: 110px;
+    width: 137px;
+    height: 137px;
+  }
+
+  .bubble-body, .bubble-name {
+    left: 140px;
   }
 
   .bubble-body {
-    font-size: 20px;
-    padding-left: 70px;
-    padding-top: 40px;
-    padding-right: 40px;
-    padding-bottom: 20px;
-    width: calc(100% - 120px);
+    width: calc(100% - 370px);
+    padding-left: 110px;
+    font-size: 22px;
   }
 
   .bubble-name {
-    margin-top: -25px;
-    margin-left: 110px;
-    width: 150px;
-    height: 80px;
+    width: 230px;
+    height: 90px;
   }
 
   .bubble-name span {
-    margin-left: 40px;
-    font-size: 21px;
+    font-size: 22px;
   }
 }
 
@@ -346,41 +352,39 @@ button:hover
     padding-left: 0;
   }
 
-  .portrait, .portframe, .portimg {
-    width: 90px;
-    height: 90px;
-  }
-
-  .portimg img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .bubble-body {
-    padding-left: 60px;
-    padding-top: 30px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    width: calc(100% - 80px);
-    font-size: 17px;
-  }
-
-  .bubble-name {
-    margin-top: -20px;
-    margin-left: 90px;
-    width: 140px;
-    height: 60px;
-  }
-
-  .bubble-name span {
-    margin-top: 10px;
-    margin-left: 40px;
-    font-size: 18px;
-  }
-
   .p5button {
     width: 90px;
     height: 49px;
+  }
+
+  .portrait, .portframe, .portimg {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portimg img {
+    width: 115px;
+    height: 115px;
+  }
+
+  .bubble-body, .bubble-name {
+    left: 110px;
+  }
+
+  .bubble-body {
+    width: calc(100% - 240px);
+    padding-left: 50px;
+    font-size: 20px;
+  }
+
+  .bubble-name {
+    width: 200px;
+    height: 70px;
+  }
+
+  .bubble-name span {
+    font-size: 20px;
+    margin-top: 10px;
   }
 
   #login-panel {
@@ -392,11 +396,6 @@ button:hover
 }
 
 @media only screen and (max-width : 375px) {
-  .bubble-body {
-    padding-top: 25px;
-    padding-left: 60px;
-  }
-
   #login-panel {
     margin-top: -150px;
     margin-left: -175px;
@@ -406,11 +405,6 @@ button:hover
 }
 
 @media only screen and (max-width : 320px) {
-  .bubble-body {
-    padding-top: 25px;
-    padding-left: 60px;
-  }
-
   #login-panel {
     margin-top: -150px;
     margin-left: -155px;

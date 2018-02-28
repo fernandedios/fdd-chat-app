@@ -17,6 +17,8 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
+    console.log(process.env);
+    
     firebase.initializeApp(keys);
   }
 

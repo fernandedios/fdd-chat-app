@@ -5,13 +5,13 @@ class ChatBubble extends Component {
     const { avatar, name, text } = this.props.message;
     return (
       <div className="bubble">
-          <div className="portrait">
-            <div className="portframe"></div>
-            <div className="portimg"><img src={avatar} /></div>
-          </div>
-          <div className="bubble-name"><span>{name}</span></div>
-          <div className="bubble-body">{text}</div>
+        <div className="portrait">
+          <div className="portframe"></div>
+          <div className="portimg"><img src={avatar} /></div>
         </div>
+        <div className="bubble-name"><span>{name}</span></div>
+        <div className="bubble-body">{text}</div>
+      </div>
     );
   }
 }

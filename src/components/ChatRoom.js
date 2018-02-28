@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 
 import ChatBubble from './ChatBubble';
+import keys from '../config/keys';
 
 class ChatRoom extends Component {
   constructor(props, context) {
@@ -16,14 +17,7 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
-    firebase.initializeApp({
-      apiKey: '',
-      authDomain: '',
-      databaseURL: '',
-      projectId: '',
-      storageBucket: '',
-      messagingSenderId: ''
-    });
+    firebase.initializeApp(keys);
   }
 
   componentDidMount() {

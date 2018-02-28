@@ -1,5 +1,5 @@
 {
-  "name": "FDD Concept: Chat/Messaging Application",
+  "name": "fdd-chat-app",
   "version": "1.0.0",
   "description": "Working prototype of a chat/messaging application",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "test:watch": "npm run test -- --watch",
     "postinstall": "webpack -p"
   },
-  "author": "",
+  "author": "Fernan de Dios",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.2.1",

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FacebookAuth from 'react-facebook-auth';
 
 import ChatRoom from './ChatRoom';
+import keys from '../config/keys';
 
 const fb = ({ onClick }) => (
   <div id="login-button" onClick={onClick}></div>
@@ -33,7 +34,7 @@ class AppIndex extends Component {
       return (
         <div id="login-panel">
           <FacebookAuth
-            appId="app_id_here"
+            appId={keys.appId}
             callback={this.authenticate.bind(this)}
             component={fb}
           />

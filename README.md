@@ -50,11 +50,6 @@ Preview
 Access the [application preview].
 
 
-Resources
----------
-More information and working demo can be found here:
-> http://fernandedios.com/index.php?page=experiments&id=chat
-
 Thanks
 ------
 

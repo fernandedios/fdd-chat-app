@@ -45,6 +45,10 @@ Save as 'keys.js' and place it inside the src/config folder.
 ### Production Environment Variables
 You will need to add the above values as environment variables
 
+Preview
+---------
+Access the [application preview].
+
 
 Resources
 ---------
@@ -63,3 +67,4 @@ Thanks
 [MIT License]: http://mit-license.org/
 [Facebook Application]: http://developers.facebook.com/
 [Google Firebase]: https://firebase.google.com
+[application preview]: https://chat-app-sampler.herokuapp.com/

@@ -3,52 +3,53 @@ FDD Concept: Chat/Messaging Application
 
 > Persona 5 Inspired Chat App
 
-Working prototype of a chat/messaging application built with ReactJs and Firebase
+Chat app built with React 19, Vite and Firebase (Realtime Database + Auth). The UI (bubbles, portrait frames, input, send button, login frame, logo) is drawn with CSS polygons traced from the original artwork. The only images are the chat name tag (`src/assets/bubble-name.png`) and the avatar portraits in `public/avatars`.
 
-Getting Started
+Quick start
 ------------
 
-Checkout this repo, install dependencies, configure, then start the app.
+Requires Node 22.12 or newer.
 
-```html
-$ git clone git@github.com:fernandedios/fdd-chat-app.git
-$ cd fdd-chat-app
-$ npm install
-
--- configure app
-
-$ npm start
+```sh
+git clone git@github.com:fernandedios/fdd-chat-app.git
+cd fdd-chat-app
+npm install
+npm run dev
 ```
 
-Configuration
+With no Firebase config the app runs in **local mode**: messages live in `localStorage` and sync between tabs, so you can open two tabs and chat with yourself. Facebook login is hidden in this mode.
+
+Scripts
 ------------
 
-This web application requires the following as starting point:
-- [Facebook Application]
-- [Google Firebase]
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server (local mode, or Firebase if `.env.local` is set) |
+| `npm test` / `npm run test:watch` | Vitest + Testing Library |
+| `npm run lint` | ESLint |
+| `npm run check` | Lint, test and build, same as CI |
+| `npm run build` / `npm run preview` | Production build into `dist/` and preview it |
+| `npm run emulators` + `npm run dev:emulator` | Run against local Firebase emulators (needs Java), in two terminals |
+| `npm run deploy` | Check, then deploy hosting and database rules to Firebase |
 
-### Local Development Variables
-```js
-export default {
-  apiKey: 'your_firebase_api_key',
-  authDomain: 'your_firebase_auth_domain',
-  databaseURL: 'https://your_firebase_db_url',
-  projectId: 'your_firebase_project_id',
-  storageBucket: 'your_firebase_storage_bucket',
-  messagingSenderId: 'your_firebase_messaging_sender_id',
-  appId: 'your_facebook_application_id'
-};
-```
+Firebase setup
+------------
 
-Save as 'keys.js' and place it inside the src/config folder.
+1. Create a Firebase project and a Realtime Database.
+2. In Authentication, enable the **Anonymous** provider. For Facebook login, also enable **Facebook** and paste your Facebook app ID and secret (the Facebook app needs the OAuth redirect URI that Firebase shows you).
+3. Add a web app in project settings, then copy `.env.example` to `.env.local` and fill in the values.
+4. `npx firebase-tools login` and `npx firebase-tools use --add` to pick the project.
+5. `npm run deploy`. This also publishes `database.rules.json`, which only lets signed in users read, and validates every message write.
 
-### Production Environment Variables
-You will need to add the above values as environment variables
+Deploying from GitHub
+------------
 
-Preview
----------
-Access the [application preview].
+`.github/workflows/ci.yml` runs `npm run check` on every push and PR. To also deploy on pushes to `master`, add these in the repo settings:
 
+- Variables: `FIREBASE_PROJECT_ID`, `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_DATABASE_URL`, `VITE_FIREBASE_APP_ID`
+- Secret: `FIREBASE_SERVICE_ACCOUNT` (JSON key of a service account with Firebase Hosting Admin and Firebase Realtime Database Admin roles)
+
+`dist/` is plain static files, so Netlify, Vercel or Cloudflare Pages work too: build command `npm run build`, output `dist`, and the same `VITE_*` env vars. Database rules still need `npx firebase-tools deploy --only database` once.
 
 Thanks
 ------
@@ -60,6 +61,3 @@ Thanks
 > Twitter [@fernan_de_dios](https://twitter.com/fernan_de_dios)
 
 [MIT License]: http://mit-license.org/
-[Facebook Application]: http://developers.facebook.com/
-[Google Firebase]: https://firebase.google.com
-[application preview]: https://chat-app-sampler.herokuapp.com/

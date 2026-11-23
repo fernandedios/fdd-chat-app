@@ -1,9 +1,12 @@
-/node_modules
-keys.js
-bundle.js
-npm-debug.log
+node_modules
+dist
+coverage
+.env.local
+.env.*.local
+.firebase
+firebase-debug*.log
+database-debug.log
+npm-debug.log*
 .DS_Store
-
-# IntelliJ
 *.iml
-/.idea
+.idea

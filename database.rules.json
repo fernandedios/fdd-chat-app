@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "messages": {
+      ".read": "auth != null",
+      "$id": {
+        ".write": "auth != null && !data.exists()",
+        ".validate": "newData.hasChildren(['uid', 'name', 'avatar', 'text', 'createdAt'])",
+        "uid": { ".validate": "newData.val() === auth.uid" },
+        "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 40" },
+        "avatar": { ".validate": "newData.isString() && newData.val().length <= 500" },
+        "text": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500" },
+        "createdAt": { ".validate": "newData.val() === now" },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}

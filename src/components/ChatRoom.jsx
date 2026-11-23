@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import ChatBubble from './ChatBubble.jsx';
-import { MAX_MESSAGE_LENGTH } from '../lib/avatars.js';
+import Composer from './Composer.jsx';
 
 export default function ChatRoom({ chat, identity }) {
   const [messages, setMessages] = useState([]);
-  const [text, setText] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
   const endRef = useRef(null);
@@ -15,18 +14,15 @@ export default function ChatRoom({ chat, identity }) {
     endRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'end' });
   }, [messages]);
 
-  async function submit(event) {
-    event.preventDefault();
-    const value = text.trim();
-    if (!value || sending) return;
-
+  async function send(text) {
     setSending(true);
     setError('');
     try {
-      await chat.send(identity, value);
-      setText('');
+      await chat.send(identity, text);
+      return true;
     } catch (err) {
       setError(err.message || 'Message failed to send');
+      return false;
     } finally {
       setSending(false);
     }
@@ -43,31 +39,7 @@ export default function ChatRoom({ chat, identity }) {
         ))}
         <li ref={endRef} aria-hidden="true" />
       </ul>
-
-      <form className="composer" onSubmit={submit}>
-        {error && (
-          <p className="error" role="alert">
-            {error}
-          </p>
-        )}
-        <label className="p5-input">
-          <span className="sr-only">Message</span>
-          <input
-            type="text"
-            placeholder="Message"
-            autoComplete="off"
-            maxLength={MAX_MESSAGE_LENGTH}
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-          />
-        </label>
-        <button type="submit" className="p5-send" disabled={sending || !text.trim()} aria-label="Send">
-          <span>S</span>
-          <span>e</span>
-          <span>n</span>
-          <span>d</span>
-        </button>
-      </form>
+      <Composer onSend={send} busy={sending} error={error} />
     </main>
   );
 }

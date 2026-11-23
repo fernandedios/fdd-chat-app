@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Login from './Login.jsx';
+import Login from '../../src/components/Login.jsx';
 
 describe('Login', () => {
   it('joins with the clicked avatar', async () => {

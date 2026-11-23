@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { loadChat } from './chat.js';
+import { loadChat } from '../../src/lib/chat.js';
 
 describe('loadChat', () => {
   it('falls back to local mode without Firebase config', async () => {

@@ -1,18 +1,24 @@
-export default function Header({ mode, onLeave }) {
+export default function Header({ mode, nav = [] }) {
   return (
     <header className="header">
       <h1 className="logo" aria-label="IM">
         <span className="logo-i" />
         <span className="logo-m" />
       </h1>
-      <div className="header-actions">
+      <nav className="header-actions" aria-label="Main">
         {mode !== 'firebase' && <span className="tag">{mode} mode</span>}
-        {onLeave && (
-          <button type="button" className="strip strip-anon strip-button" onClick={onLeave}>
-            Leave
+        {nav.map(({ label, active, onClick }) => (
+          <button
+            key={label}
+            type="button"
+            className={active ? 'strip strip-anon strip-button active' : 'strip strip-anon strip-button'}
+            aria-current={active ? 'page' : undefined}
+            onClick={onClick}
+          >
+            {label}
           </button>
-        )}
-      </div>
+        ))}
+      </nav>
     </header>
   );
 }

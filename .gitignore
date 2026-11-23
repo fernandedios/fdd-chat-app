@@ -3,6 +3,7 @@ dist
 coverage
 .env.local
 .env.*.local
+.env
 .firebase
 firebase-debug*.log
 database-debug.log

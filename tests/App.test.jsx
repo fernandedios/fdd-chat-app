@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App.jsx';
-import { createLocalChat } from './lib/localChat.js';
+import App from '../src/App.jsx';
+import { createLocalChat } from '../src/lib/localChat.js';
 
 const setup = (chat = createLocalChat({ channel: null })) => {
   const user = userEvent.setup();
@@ -52,5 +52,25 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: 'Join as Ann' }));
     await user.click(screen.getByRole('button', { name: 'Leave' }));
     expect(screen.getByRole('button', { name: 'Join as Ann' })).toBeInTheDocument();
+  });
+
+  it('asks for AI settings, then opens a character chat', async () => {
+    const aiClient = vi.fn(async function* () {
+      yield 'Coffee is ready.';
+    });
+    const user = userEvent.setup();
+    render(<App chat={createLocalChat({ channel: null })} aiClient={aiClient} />);
+
+    await user.click(screen.getByRole('button', { name: 'Join as Ann' }));
+    await user.click(screen.getByRole('button', { name: 'Characters' }));
+    expect(screen.getByRole('button', { name: 'Chat with Haru Okumura' })).toBeDisabled();
+
+    await user.type(screen.getByPlaceholderText('Model name from your provider'), 'test-model');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+    await user.click(screen.getByRole('button', { name: 'Chat with Haru Okumura' }));
+    await user.type(screen.getByPlaceholderText('Message Haru'), 'hi{Enter}');
+
+    expect(await screen.findByText('Coffee is ready.')).toBeInTheDocument();
+    expect(aiClient.mock.calls[0][0].model).toBe('test-model');
   });
 });

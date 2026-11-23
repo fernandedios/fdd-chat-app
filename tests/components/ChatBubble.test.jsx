@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ChatBubble from './ChatBubble.jsx';
+import ChatBubble from '../../src/components/ChatBubble.jsx';
 
 const message = { id: '1', uid: 'u1', name: 'Anon', avatar: '/avatars/ann.jpg', text: 'Hi there' };
 

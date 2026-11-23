@@ -1,3 +1,4 @@
+import Disclaimer from './Disclaimer.jsx';
 import { AVATARS, avatarUrl } from '../lib/avatars.js';
 
 export default function Login({ supportsFacebook, onFacebook, onAnon, busy, error }) {
@@ -40,6 +41,7 @@ export default function Login({ supportsFacebook, onFacebook, onAnon, busy, erro
           </p>
         )}
       </div>
+      <Disclaimer />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { createLocalChat } from './localChat.js';
+import { createLocalChat } from '../../src/lib/localChat.js';
 
 const make = (opts) => createLocalChat({ channel: null, ...opts });
 
